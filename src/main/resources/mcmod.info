@@ -1,0 +1,16 @@
+[
+{
+  "modid": "portalmod",
+  "name": "Portal Mod",
+  "description": "Portal mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Andrew Bodine"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
