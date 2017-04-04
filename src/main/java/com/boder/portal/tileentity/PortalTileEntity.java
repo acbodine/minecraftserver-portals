@@ -7,6 +7,7 @@ import java.util.List;
 import com.boder.portal.block.PortalBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -54,37 +55,47 @@ public class PortalTileEntity extends TileEntity implements ITickable {
 
 	@Override
 	public void update() {
-		if (!world.isRemote) return;
+//		if (!world.isRemote) return;
+//
+//		counter++;
+//
+//		// By executing every 20 ticks, we are executing roughly once a second.
+//		if (counter < 20) return;
+//
+//		counter = 0;
+//
+//		BlockPos position = this.getPos();
+//		Block block = world.getBlockState(position).getBlock();
+//
+//		List<BlockPos> positions = new ArrayList<BlockPos>();
+//		positions.add(position.up());
+//		positions.add(position.down());
+//		positions.add(position.north());
+//		positions.add(position.east());
+//		positions.add(position.south());
+//		positions.add(position.west());
+//		
+//		// Compare with blocks around it based on block.getRegistryName()
+//		System.out.println("Checking positions around " + block.getRegistryName()  + " at " + position.toString());
+//
+//		for (Iterator<BlockPos> i = positions.iterator(); i.hasNext(); ) {
+//			BlockPos p = i.next();
+//			Block b = world.getBlockState(p).getBlock();
+//			
+//			if (!b.getRegistryName().equals(block.getRegistryName())) continue;
+//			
+//			System.out.println("An adjacent block of the same type at " + p.toString());
+//		}
+	}
 
-		counter++;
+	public void teleportPlayer(EntityPlayer player) {
+		System.out.println("Teleporting player:");
+		System.out.println(player);
 
-		// By executing every 20 ticks, we are executing roughly once a second.
-		if (counter < 20) return;
+		int skip = 150;
 
-		counter = 0;
-
-		BlockPos position = this.getPos();
-		Block block = world.getBlockState(position).getBlock();
-
-		List<BlockPos> positions = new ArrayList<BlockPos>();
-		positions.add(position.up());
-		positions.add(position.down());
-		positions.add(position.north());
-		positions.add(position.east());
-		positions.add(position.south());
-		positions.add(position.west());
-		
-		// Compare with blocks around it based on block.getRegistryName()
-		System.out.println("Checking positions around " + block.getRegistryName()  + " at " + position.toString());
-
-		for (Iterator<BlockPos> i = positions.iterator(); i.hasNext(); ) {
-			BlockPos p = i.next();
-			Block b = world.getBlockState(p).getBlock();
-			
-			if (!b.getRegistryName().equals(block.getRegistryName())) continue;
-			
-			System.out.println("An adjacent block of the same type at " + p.toString());
-		}
+		BlockPos position = player.getPosition();
+		player.setPositionAndUpdate(position.getX() + skip * 10, position.getY() + skip, position.getZ());
 	}
 	
 }
