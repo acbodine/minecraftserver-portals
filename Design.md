@@ -1,6 +1,14 @@
 # Design
 
+## Goals
+
+- [ ] As a user looks through a portal, before walking through, they should
+see what they would see if they went through the portal.
+- [ ] Nothing but magicians can walk through portals, but things can come
+with you if you aren't careful.
+
 ## Q/A
+
 How should a user make a portal, and how should that portal be linked to any
 existing portal tree?
     For now portal constructions/casting should be the same as building a
