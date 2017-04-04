@@ -1,6 +1,6 @@
 package com.boder.portal;
 
-import com.boder.portal.blocks.ModBlocks;
+import com.boder.portal.block.Blocks;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -8,23 +8,23 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Portal.MODID, version = Portal.VERSION)
-public class Portal {
-    public static final String MODID = "portalmod";
+@Mod(modid = Portals.MODID, version = Portals.VERSION)
+public class Portals {
+    public static final String MODID = "portalsmod";
     public static final String VERSION = "0.1";
-    
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        System.out.println(MODID + " initialized.");
+        System.out.println(MODID + "-" + VERSION + " initialized.");
     }
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	ModBlocks.preInit(event);
+    	Blocks.preInit(event);
     }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-    	ModBlocks.postInit(event);
+    	Blocks.postInit(event);
     }
 }
