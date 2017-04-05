@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "portalmod:blocks/portal"
+        "all": "portalsmod:blocks/portal"
     }
 }

@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "portalmod:portal"
+            "model": "portalsmod:portal_block"
         }
     }
 }

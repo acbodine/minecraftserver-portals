@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.boder.portal.Portals;
 import com.boder.portal.block.PortalBlock;
 
 import net.minecraft.block.Block;
@@ -15,18 +16,23 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class PortalTileEntity extends TileEntity implements ITickable {
-
-	// A Named Binary Tag (NBT) is one way of storing additional
-	// information about items, blocks, entities, or tile entities
-	// in Minecraft.
 
 	private int counter = 0;
 
 	private int next = 0;
+	
+	private String name = "portal_block_tileentity";
 
-	public PortalTileEntity() {}
+	public PortalTileEntity() {
+		GameRegistry.registerTileEntity(PortalTileEntity.class, Portals.MODID + "_" + name);
+	}
+
+	// A Named Binary Tag (NBT) is one way of storing additional
+	// information about items, blocks, entities, or tile entities
+	// in Minecraft.
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {

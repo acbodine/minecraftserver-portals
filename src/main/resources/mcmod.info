@@ -1,8 +1,8 @@
 [
 {
-  "modid": "portalmod",
-  "name": "Portal Mod",
-  "description": "Portal mod.",
+  "modid": "portalsmod",
+  "name": "Portals Mod",
+  "description": "Portals mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

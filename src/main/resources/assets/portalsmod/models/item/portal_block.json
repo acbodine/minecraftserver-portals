@@ -1,5 +1,5 @@
 {
-    "parent": "portalmod:block/portal",
+    "parent": "portalsmod:block/portal_block",
     "display": {
         "thirdperson": {
             "rotation": [10, -45, 170],

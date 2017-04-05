@@ -14,23 +14,24 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class Blocks {
-	public static Block portal;
+
+	public static Block Portal;
 	
 	public static void preInit(FMLPreInitializationEvent event) {
-		portal = new PortalBlock();
 
-		// TODO: Move this to PortalTileEntity constructor.
-		GameRegistry.registerTileEntity(PortalTileEntity.class, Portals.MODID + "_portal_tileentity");
+		// TODO: Figure out if we should be instantiating game objects
+		// here in order to handle registration to GameRegistry. There
+		// might be a better way to handle this, it may involve moving
+		// away from this Blocks class.
+
+		Blocks.Portal = new PortalBlock();
 	}
 	
 	public static void postInit(FMLPostInitializationEvent event) {
+
 		if (event.getSide() == Side.CLIENT) {
-			RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
-			
-			Item item = Item.getItemFromBlock(portal);
-			ModelResourceLocation location = new ModelResourceLocation(Portals.MODID + ":" + ((PortalBlock) portal).getName(), "inventory");
-			
-			renderItem.getItemModelMesher().register(item, 0, location);
+			((PortalBlock) Blocks.Portal).registerModelMesher();
 		}
+
 	}
 }
