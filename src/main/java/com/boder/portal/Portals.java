@@ -1,6 +1,7 @@
 package com.boder.portal;
 
 import com.boder.portal.block.Blocks;
+import com.boder.portal.enchantment.Enchantments;
 // import com.boder.portal.item.Items;
 import com.boder.portal.tileentity.TileEntities;
 
@@ -25,12 +26,10 @@ public class Portals {
     	 * game objects. 
     	 */
 
+    	Enchantments.preInit(event);
+
     	Blocks.preInit(event);
-
-    	// Items.preInit(event);
-
     	TileEntities.preInit(event);
-
     }
 
     @EventHandler
